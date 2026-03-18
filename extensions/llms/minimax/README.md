@@ -30,8 +30,10 @@ pai.config.set({"llm": llm})
 
 | Model | Context Window | Description |
 |-------|---------------|-------------|
-| `MiniMax-M2.5` (default) | 204K | Most capable model |
-| `MiniMax-M2.5-highspeed` | 204K | Optimized for speed |
+| `MiniMax-M2.7` (default) | 204K | Latest and most capable model |
+| `MiniMax-M2.7-highspeed` | 204K | Latest model optimized for speed |
+| `MiniMax-M2.5` | 204K | Previous generation model |
+| `MiniMax-M2.5-highspeed` | 204K | Previous generation, optimized for speed |
 
 ## Configuration
 
@@ -40,7 +42,7 @@ You can pass additional parameters:
 ```python
 llm = MiniMax(
     api_token="your-minimax-api-key",
-    model="MiniMax-M2.5-highspeed",
+    model="MiniMax-M2.7-highspeed",
     temperature=0.3,
     max_tokens=2000,
 )
