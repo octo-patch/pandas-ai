@@ -36,7 +36,7 @@ class TestMiniMaxLLM:
 
     def test_default_model(self):
         llm = MiniMax(api_token="test")
-        assert llm.model == "MiniMax-M2.7"
+        assert llm.model == "MiniMax-M3"
 
     def test_default_api_base(self):
         llm = MiniMax(api_token="test")
@@ -56,7 +56,7 @@ class TestMiniMaxLLM:
     def test_params_setting(self):
         llm = MiniMax(
             api_token="test",
-            model="MiniMax-M2.5-highspeed",
+            model="MiniMax-M2.7-highspeed",
             temperature=0.5,
             max_tokens=50,
             top_p=1.0,
@@ -65,7 +65,7 @@ class TestMiniMaxLLM:
             stop=["\n"],
         )
 
-        assert llm.model == "MiniMax-M2.5-highspeed"
+        assert llm.model == "MiniMax-M2.7-highspeed"
         assert llm.temperature == 0.5
         assert llm.max_tokens == 50
         assert llm.top_p == 1.0
@@ -83,7 +83,7 @@ class TestMiniMaxLLM:
                     "completion_tokens": 1,
                     "total_tokens": 3,
                 },
-                "model": "MiniMax-M2.7",
+                "model": "MiniMax-M3",
             }
         )
 
@@ -125,15 +125,8 @@ class TestMiniMaxLLM:
         ):
             MiniMax(api_token="test", model="not-a-model")
 
-    def test_call_supported_chat_model(self, mocker, prompt):
-        minimax = MiniMax(api_token="test", model="MiniMax-M2.5")
-        mocker.patch.object(minimax, "chat_completion", return_value="response")
-
-        result = minimax.call(instruction=prompt)
-        assert result == "response"
-
-    def test_call_highspeed_model(self, mocker, prompt):
-        minimax = MiniMax(api_token="test", model="MiniMax-M2.5-highspeed")
+    def test_call_m3_model(self, mocker, prompt):
+        minimax = MiniMax(api_token="test", model="MiniMax-M3")
         mocker.patch.object(minimax, "chat_completion", return_value="response")
 
         result = minimax.call(instruction=prompt)

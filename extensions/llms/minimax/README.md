@@ -30,10 +30,9 @@ pai.config.set({"llm": llm})
 
 | Model | Context Window | Description |
 |-------|---------------|-------------|
-| `MiniMax-M2.7` (default) | 204K | Latest and most capable model |
-| `MiniMax-M2.7-highspeed` | 204K | Latest model optimized for speed |
-| `MiniMax-M2.5` | 204K | Previous generation model |
-| `MiniMax-M2.5-highspeed` | 204K | Previous generation, optimized for speed |
+| `MiniMax-M3` (default) | 512K | Latest model with 128K max output, supports image input |
+| `MiniMax-M2.7` | 204K | Previous generation, most capable |
+| `MiniMax-M2.7-highspeed` | 204K | Previous generation, optimized for speed |
 
 ## Configuration
 
